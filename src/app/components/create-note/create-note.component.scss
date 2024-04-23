@@ -1,0 +1,63 @@
+// .example{
+//     visibility: hidden;
+    
+// }
+
+// .abc{
+//     &:hover{
+//         .example{
+//             visibility: visible;    
+//         }
+//     }
+// }
+
+.parent {
+  display: flex;
+  justify-content: space-between; /* Align items to the left and right */
+  padding: 10px;
+  border-radius: 10px;
+  width: 50%;
+  margin-top: 70px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow instead of border */
+}
+
+.pin {
+  display: flex;
+  justify-content: space-between; /* Add space between the input and the icon */
+  align-items: center; /* Center items vertically */
+  width: 100%; /* Take full width */
+}
+
+.icons-container {
+  display: flex;
+  gap: 30px;
+}
+
+.note-wrapper {
+  padding: 10px;
+  border-radius: 10px;
+  width: 50%; /* Take full width */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Arrange items vertically */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+}
+
+.note-input {
+  width: calc(100% - 20px); /* Subtract padding from width */
+  padding: 5px;
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.icons {
+  display: flex;
+  gap: 35px;
+}

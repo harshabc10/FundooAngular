@@ -1,0 +1,51 @@
+.note-card {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .pin-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: #555;
+    font-size: 20px;
+  }
+  .note-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .note-content {
+    margin-bottom: 10px;
+  }
+  
+  .sample-text {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .note-icons {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: none;
+  }
+  
+  .note-card:hover .note-icons {
+    display: flex;
+  }
+  
+  .note-icons mat-icon {
+    margin-right: 10px;
+    cursor: pointer;
+    color: #555;
+    font-size: 20px;
+  }
+  

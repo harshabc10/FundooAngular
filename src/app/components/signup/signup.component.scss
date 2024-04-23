@@ -1,0 +1,138 @@
+// .container {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     height: 100vh;
+//   }
+  
+//   .branding {
+//     text-align: center;
+//     margin-bottom: 20px;
+//   }
+  
+//   .logo {
+//     font-size: 32px;
+//     font-weight: bold;
+//     color: #333;
+//   }
+  
+//   .account {
+//     font-size: 14px;
+//     color: #666;
+//   }
+  
+//   .form {
+//     width: 300px;
+//   }
+  
+//   .mat-form-field {
+//     width: 100%;
+//     margin-bottom: 15px;
+//   }
+  
+//   button {
+//     margin-top: 20px;
+//   }
+  
+
+::ng-deep .app-signup-ctn{
+  display: flex;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.left-cnt {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 10px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: yellow;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form-container {
+  display: flex;
+  gap: 10px; /* Adjust the gap between form fields as needed */
+}
+
+.form-field {
+  flex: 1; /* Each form field takes equal space */
+}
+
+.custom-width {
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.btn-link {
+  background-color: transparent;
+  color: #007bff;
+  border: none;
+  
+  
+}
+
+.image-cnt {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f0f0; /* Example background color */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-cnt{
+  width: 45%;
+    
+    img {
+        width: 100%;
+    }
+}
+
+.img-msg {
+  margin-left: 50px;
+  font-style: round($number: 0);
+}

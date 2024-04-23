@@ -1,0 +1,95 @@
+<!-- <div class="container">
+    <div class="branding">
+      <span class="logo">fundoo</span>
+      <span class="account">user fundoo account</span>
+    </div>
+    <form class="form" [formGroup]="formGroup">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" placeholder="Enter your first name">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" placeholder="Enter your last name">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" placeholder="Enter your username">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" placeholder="Enter your password">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput formControlName="confirmPassword" type="password" placeholder="Confirm your password">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="signIn()">Sign In</button>
+      <button mat-raised-button color="accent" (click)="register()">Register</button>
+    </form>
+  </div>
+  
+  \ -->
+
+  <div class="container" [formGroup]="signUpForm">
+    <div class="left-cnt">
+      <div class="centered-content">
+        <span class="title">Fundoo</span>
+        <span class="subtext">Use your fundoo account</span>
+      </div>
+  
+      <div class="form-container">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>FirstName</mat-label>
+          <input matInput placeholder="Enter your firstName" formControlName="firstName" />
+          <mat-error *ngIf="signUpForm.get('firstName')?.hasError('required')">First Name is required</mat-error>
+                <mat-error *ngIf="signUpForm.get('firstName')?.hasError('pattern')">Incorrect First Name format</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>LastName</mat-label>
+          <input matInput placeholder="Enter your lastName" formControlName="lastName"/>
+          <mat-error *ngIf="signUpForm.get('lastName')?.hasError('required')">Last Name is required</mat-error>
+        <mat-error *ngIf="signUpForm.get('lastName')?.hasError('pattern')">Incorrect Last Name format</mat-error>
+        </mat-form-field>
+        
+      </div>
+  
+      <div class="form-container">
+        <mat-form-field class="custom-width" appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Enter your username" formControlName="userName"/>
+          <mat-error *ngIf="signUpForm.get('userName')?.hasError('required')">User Name is required</mat-error>
+                <mat-error *ngIf="signUpForm.get('userName')?.hasError('pattern')">Incorrect User Name format</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="form-container">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Enter your password" formControlName="password"/>
+          <mat-error *ngIf="signUpForm.get('password')?.hasError('required')">Password is required</mat-error>
+          <mat-error *ngIf="signUpForm.get('password')?.hasError('minlength')">Minimum length of 6 characters is required</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Confirm</mat-label>
+          <input matInput type="password" placeholder="Confirm your password" formControlName="confirmPassword">
+          <mat-error *ngIf="signUpForm.hasError('passwordMismatch')">Passwords do not match</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="button-group">
+        <button class="btn btn-link" routerLink="/">Sign in instead </button>
+        <button class="btn btn-primary" (click)="handleSignUp()">Register</button>
+      </div>
+    </div>
+  
+    <div class="image-cnt">
+      <!-- Your image content goes here -->
+      <img src="assets/code.jpg" alt="Description of the image"><br>
+        <span style= "margin-top: 20px; " class="img-msg"><b>One account. All of Fundo</b></span><br>
+        <span style="margin-left: 50px;"><b>working for You</b></span>
+    </div>
+  </div>
+  
