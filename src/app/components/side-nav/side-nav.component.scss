@@ -1,0 +1,26 @@
+.side-nav-icon-lable-cnt {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust the gap between icon and label */
+    //padding: 8px; /* Add padding to the container */
+    transition: background-color 0.3s ease; 
+    border-radius: 0px 20px;/* Add transition for smooth color change */
+}
+
+.side-nav-icon-lable-cnt:hover {
+    background-color: #eab964; /* Change background color on hover */
+}
+.mat-icon {
+    margin-right: 40px; /* Increase the space between icon and text */
+    margin-bottom:20px;
+    font-size: 24px; /* Increase the size of the icon */
+    margin-top: 30px;
+}
+
+.mat-drawer{
+    width: 180px;
+}
+
+.mat-drawer-content{
+    height: 400px;
+}

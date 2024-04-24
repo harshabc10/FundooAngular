@@ -18,6 +18,8 @@
   border-radius: 10px;
   width: 50%;
   margin-top: 70px;
+  margin-bottom: 50px;
+  margin-left: 450px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow instead of border */
 }
 
@@ -41,6 +43,8 @@
   display: flex;
   flex-direction: column; /* Arrange items vertically */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  margin-left: 450px;
+  margin-bottom: 50px;
 }
 
 .note-input {
