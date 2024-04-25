@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,6 +7,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HttpService {
+
+  private baseUrl:string = "https://localhost:7004/api"
+ 
+  private authHeader = new HttpHeaders({
+    //'Accept': "application/json",
+    Authorization: `Bearer ${localStorage.getItem('authToken')}` || ""
+  })
 
   constructor(private http : HttpClient) { 
 
@@ -18,5 +25,13 @@ export class HttpService {
 
   signUpApi(requestBody: any): Observable<any> {
     return this.http.post('https://localhost:7004/api/User', requestBody, {});
+  }
+
+  getAllNotesApi(){
+    return this.http.get('https://localhost:7004/api/usernotes/ByUserId',{headers:this.authHeader})
+  }
+
+  addNotesApi(noteData: any): Observable<any> {
+    return this.http.post('https://localhost:7004/api/usernotes', noteData, { headers: this.authHeader });
   }
 }

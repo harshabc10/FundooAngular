@@ -10,7 +10,7 @@
 </ng-template> -->
 
 
-<div class="parent" *ngIf="!createNote; else createNoteCnt" (click)="handelCreateNote()">
+<div class="parent" *ngIf="!createNote; else createNoteCnt" (click)="handelCreateNote('open')">
   <span>Take a note</span>
   <div class="icons-container">
       <mat-icon svgIcon="list-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
@@ -38,7 +38,8 @@
       <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
       <mat-icon svgIcon="more-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
   </div>
-  <button class="close-button" mat-button (click) ="handelCreateNote()">Close</button>
+  <button class="close-button" mat-button (click)="handelCreateNote('close')">Close</button>
+
   </div>
       
   </div>

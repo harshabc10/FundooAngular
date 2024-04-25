@@ -1,11 +1,12 @@
 export interface NoteObj {
     title?: string,
     description?: string,
+    imagePaths?: string,
+    isPinned?: boolean,
+    isTrashed?: boolean,
     isArchived?: boolean,
-    isDeleted?: boolean,
-    service?: string,
-    id?: string,
-    IsColour?: string,
+    color?: string,
     reminder?:Date,
-    EmailId?:string
+
+    
 }
