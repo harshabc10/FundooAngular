@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { NotesService } from 'src/app/services/notesService/notes.service';
 import { ARCHIVE_ICON, COLLABRATOR_ICON, COLOR_PALATTE_ICON, IMG_ICON, MORE_ICON, PIN_ICON, REMINDER_ICON } from 'src/assets/svg-icons';
 
 @Component({
@@ -16,7 +17,7 @@ export class NoteCardComponent implements OnInit {
   @Output() updateList=new EventEmitter<any>();
 
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,private noteService: NotesService) {
     iconRegistry.addSvgIconLiteral("reminder-icon", sanitizer.bypassSecurityTrustHtml(REMINDER_ICON))
     iconRegistry.addSvgIconLiteral("collabrator-icon", sanitizer.bypassSecurityTrustHtml(COLLABRATOR_ICON))
     iconRegistry.addSvgIconLiteral("color-icon", sanitizer.bypassSecurityTrustHtml(COLOR_PALATTE_ICON))
@@ -33,9 +34,10 @@ export class NoteCardComponent implements OnInit {
  
   handleNoteIconsClick(action: string, note: any) {
     if(action=="archive"){
-      //api call
+      this.noteService.archiveApiCall(this.notesData).subscribe(response => {
       this.updateList.emit({action:action, data:note});
+      });
     }
-    // Implement your logic for handling icon clicks here
-  }
 }
+}
+

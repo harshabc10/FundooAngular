@@ -34,4 +34,8 @@ export class HttpService {
   addNotesApi(noteData: any): Observable<any> {
     return this.http.post('https://localhost:7004/api/usernotes', noteData, { headers: this.authHeader });
   }
+
+  archiveApi(noteData:any):Observable<any>{
+    return this.http.post('https://localhost:7004/api/usernotes/archive',noteData,{headers:this.authHeader})
+  }
 }

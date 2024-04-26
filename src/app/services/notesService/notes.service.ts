@@ -16,4 +16,9 @@ export class NotesService {
   addNotesApiCall(noteData: any) {
     return this.httpService.addNotesApi(noteData);
   }
+
+  archiveApiCall(noteData: any) {
+    return this.httpService.archiveApi(noteData);
+ 
+}
 }
