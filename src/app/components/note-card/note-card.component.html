@@ -1,25 +1,78 @@
 <div class="note-card-outer">
   <div *ngFor="let note of notesData" class="note-card">
-   
-    <mat-icon class="pin-icon" svgIcon="pin-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+    <mat-icon
+      class="pin-icon"
+      svgIcon="pin-icon"
+      aria-hidden="false"
+      aria-label="Note SVG icon"
+    ></mat-icon>
     <div class="note-content">
-      <span class="sample-text">{{note.title}} </span>
-      <span class="sample-text">{{note.description}} </span>
-
+      <span class="sample-text">{{ note.title }} </span>
+      <span class="sample-text">{{ note.description }} </span>
     </div>
     <div class="note-icons">
-      <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
-      <mat-icon svgIcon="collabrator-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
-      <mat-icon svgIcon="color-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
-      <mat-icon svgIcon="img-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
-      <mat-icon svgIcon="archive-icon" (click)="handleNoteIconsClick('archive',note)" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
-      <mat-icon svgIcon="more-icon" [matMenuTriggerFor]="moreMenu" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+      <mat-icon
+        svgIcon="reminder-icon"
+        aria-hidden="false"
+        aria-label="Note SVG icon"
+      ></mat-icon>
+      <mat-icon
+        svgIcon="collabrator-icon"
+        aria-hidden="false"
+        aria-label="Note SVG icon"
+      ></mat-icon>
+      <mat-icon
+        svgIcon="color-icon"
+        [matMenuTriggerFor]="noteCardColourMenu"
+        aria-hidden="false"
+        aria-label="Note SVG icon"
+      ></mat-icon>
+      <mat-icon
+        svgIcon="img-icon"
+        aria-hidden="false"
+        aria-label="Note SVG icon"
+      ></mat-icon>
+      <mat-icon
+        svgIcon="archive-icon"
+        (click)="handleNoteIconsClick('archive', note)"
+        aria-hidden="false"
+        aria-label="Note SVG icon"
+      ></mat-icon>
+      <mat-icon
+        svgIcon="more-icon"
+        [matMenuTriggerFor]="moreMenu"
+        aria-hidden="false"
+        aria-label="Note SVG icon"
+      ></mat-icon>
     </div>
+
+    <mat-menu #noteCardColourMenu="matMenu">
+      <div class="color-palate-cnt">
+        <div class="col1" matTooltip="Default"></div>
+        <div class="col2" matTooltip="Coral"></div>
+        <div class="col3" matTooltip="Peach"></div>
+        <div class="col4" matTooltip="Sand"></div>
+        <div class="col5" matTooltip="Mint"></div>
+        <div class="col6" matTooltip="Sage"></div>
+        <div class="col7" matTooltip="Fog"></div>
+        <div class="col8" matTooltip="Storm"></div>
+        <div class="col9" matTooltip="Dusk"></div>
+        <div class="col10" matTooltip="Blossom"></div>
+        <div class="col11" matTooltip="Clay"></div>
+        <div class="col12" matTooltip="Chalk"></div>
+      </div>
+    </mat-menu>
+
+    <mat-menu #moreMenu="matMenu">
+      <button mat-menu-item (click)="handleNoteIconsClick('trash', note)">
+        <span>Delete note</span></button
+      ><button mat-menu-item>
+        <span>Change lables</span></button
+      ><button mat-menu-item>
+        <span>Add drawing</span></button
+      ><button mat-menu-item>
+        <span>Make a copy</span>
+      </button>
+    </mat-menu>
   </div>
-  
 </div>
-<mat-menu #moreMenu="matMenu">
-  <button mat-menu-item>
-    <span>Delete Note</span>
-  </button>
-</mat-menu>

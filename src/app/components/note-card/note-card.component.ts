@@ -34,10 +34,17 @@ export class NoteCardComponent implements OnInit {
  
   handleNoteIconsClick(action: string, note: any) {
     if(action=="archive"){
-      this.noteService.archiveApiCall(this.notesData).subscribe(response => {
+      this.noteService.archiveApiCall({noteId:note.id}).subscribe(response => {
       this.updateList.emit({action:action, data:note});
       });
     }
+    else if(action=="trash"){
+      this.noteService.trashApiCall({noteId:note.id}).subscribe(response => {
+        this.updateList.emit({action:action, data:note});
+      });
+    }
 }
+
+
 }
 

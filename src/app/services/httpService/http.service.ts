@@ -38,4 +38,8 @@ export class HttpService {
   archiveApi(noteData:any):Observable<any>{
     return this.http.post('https://localhost:7004/api/usernotes/archive',noteData,{headers:this.authHeader})
   }
+
+  trashApi(noteData:any):Observable<any>{
+    return this.http.post('https://localhost:7004/api/usernotes/trash',noteData,{headers:this.authHeader})
+  }
 }

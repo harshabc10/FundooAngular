@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotesService } from 'src/app/services/notesService/notes.service';
 
 @Component({
   selector: 'app-trash-container',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrashContainerComponent implements OnInit {
 
-  constructor() { }
+  trashList: any = [];
+
+  constructor(private notesService: NotesService) {}
 
   ngOnInit(): void {
+    this.notesService.getAllNotesApiCall().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.trashList = response.data.filter((ele: any)=>ele.isTrash);
+      },
+      (err) => console.log(err)
+    );
+  }
+
+  handelUpdateTrashList($event: { action: string; data: any }) {
+    console.log('event', $event);
+    if ($event.action == 'archive' || $event.action == 'trash') {
+      this.trashList = this.trashList.filter(
+        (ele: any) => ele.id != $event.data.id
+      );
+    }
   }
 
 }

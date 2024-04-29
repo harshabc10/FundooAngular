@@ -21,4 +21,8 @@ export class NotesService {
     return this.httpService.archiveApi(noteData);
  
 }
+
+trashApiCall(noteData:any){
+return this.httpService.trashApi(noteData);
+}
 }

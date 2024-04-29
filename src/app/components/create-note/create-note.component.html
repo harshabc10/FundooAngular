@@ -36,7 +36,9 @@
       <mat-icon svgIcon="color-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
       <mat-icon svgIcon="image-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
       <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
-      <mat-icon svgIcon="more-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+      <mat-icon svgIcon="more-icon" [matMenuTriggerFor]="noteMenu" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+      <mat-icon svgIcon="undo-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+      <mat-icon svgIcon="redo-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
   </div>
   <button class="close-button" mat-button (click)="handelCreateNote('close')">Close</button>
 
@@ -45,4 +47,12 @@
   </div>
 </ng-template>
 
-  
+<mat-menu #noteMenu="matMenu">
+  <button mat-menu-item>
+    <span>Change lables</span></button
+  ><button mat-menu-item>
+    <span>Add drawing</span></button
+  ><button mat-menu-item>
+    <span>Show checkboxes</span>
+  </button>
+</mat-menu>

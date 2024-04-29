@@ -8,7 +8,10 @@ import { ARCHIVE_ICON, EDIT_ICON, NOTE_ICON, REMINDER_ICON, TRASH_ICON } from 's
 @Component({
   selector: 'app-side-nav',
   templateUrl: './side-nav.component.html',
-  styleUrls: ['./side-nav.component.scss']
+  styleUrls: ['./side-nav.component.scss'],
+  host:{
+    class:"app-sidenav-cnt"
+  }
 })
 export class SideNavComponent implements OnInit, OnDestroy {
   isDrawerOpen :boolean = false;

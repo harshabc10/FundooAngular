@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NotesService } from 'src/app/services/notesService/notes.service';
-import { ARCHIVE_ICON, BRUSH_ICON, COLLABRATOR_ICON, COLOR_PALATTE_ICON, IMG_ICON, LIST_VIEW_ICON, MORE_ICON, PIN_ICON, REMINDER_ICON } from 'src/assets/svg-icons';
+import { ARCHIVE_ICON, BRUSH_ICON, COLLABRATOR_ICON, COLOR_PALATTE_ICON, IMG_ICON, LIST_VIEW_ICON, MORE_ICON, PIN_ICON, REDO_ICON, REMINDER_ICON, UNDO_ICON } from 'src/assets/svg-icons';
 
 @Component({
   selector: 'app-create-note',
@@ -34,6 +34,8 @@ export class CreateNoteComponent implements OnInit {
     iconRegistry.addSvgIconLiteral("pin-icon", sanitizer.bypassSecurityTrustHtml(PIN_ICON));
     iconRegistry.addSvgIconLiteral('archive-icon', sanitizer.bypassSecurityTrustHtml(ARCHIVE_ICON));
     iconRegistry.addSvgIconLiteral('more-icon', sanitizer.bypassSecurityTrustHtml(MORE_ICON));
+    iconRegistry.addSvgIconLiteral('undo-icon', sanitizer.bypassSecurityTrustHtml(UNDO_ICON));
+    iconRegistry.addSvgIconLiteral('redo-icon', sanitizer.bypassSecurityTrustHtml(REDO_ICON));
   }
 
   ngOnInit(): void {
@@ -41,7 +43,7 @@ export class CreateNoteComponent implements OnInit {
 
   handelCreateNote(action:string){
     this.createNote=!this.createNote
-    if(action=="close"){
+    if(action=="close" && this.title || this.description ){
       
 
       this.notesService.addNotesApiCall({ title: this.title, description: this.description , color:"#fffff", ImagePaths:"abc.jpg"}).subscribe(

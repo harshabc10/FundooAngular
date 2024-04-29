@@ -15,7 +15,7 @@ notesList: any = []
   ngOnInit(): void {
     this.notesService.getAllNotesApiCall().subscribe((response:any)=>{
       console.log(response);
-      this.notesList=response.data
+      this.notesList=response.data.filter((ele:any)=>!ele.isArchive && !ele.isTrash)
     },
   err=>console.log(err))
   }
@@ -25,9 +25,10 @@ notesList: any = []
     if($event.action=="create"){
       this.notesList=[...this.notesList,$event.data]
     }
-    else if($event.action=="archive"){
+    else if($event.action=="archive" || $event.action=="trash"){
       this.notesList=this.notesList.filter((ele:any)=>ele.id!=$event.data.id)
     }
+
   }
 
 }
