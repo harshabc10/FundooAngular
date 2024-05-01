@@ -1,18 +1,29 @@
 .note-card-outer {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-left: 250px;
+    flex-direction: row;
+    // gap:25px;
+    justify-content: space-evenly;
+    margin: auto;
+    margin-top: 50px;
+    width:75%;
+    flex-wrap: wrap;
+
 }
 
 .note-card {
-  width: 21%;
-  height: 106px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width:250px;
+  margin: 20px 0px;
+  min-height:30px;
+  max-height: fit-content;
+  padding: 10px;
   transition: box-shadow 0.3s ease-in-out;
   display: flex;
   flex-direction: column;

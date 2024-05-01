@@ -42,4 +42,12 @@ export class HttpService {
   trashApi(noteData:any):Observable<any>{
     return this.http.post('https://localhost:7004/api/usernotes/trash',noteData,{headers:this.authHeader})
   }
+
+  colorApi(noteId: number, color: string): Observable<any> {  
+    console.log(color)  
+    return this.http.put(`https://localhost:7004/api/usernotes/changecolor/${noteId}?color=${encodeURIComponent(color)}`,{},{headers:this.authHeader});
+}
+  deleteApi(noteData:any):Observable<any>{
+    return this.http.delete('https://localhost:7004/api/usernotes'+ noteData,{headers:this.authHeader})
+  }
 }

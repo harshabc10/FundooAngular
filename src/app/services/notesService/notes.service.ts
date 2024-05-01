@@ -25,4 +25,12 @@ export class NotesService {
 trashApiCall(noteData:any){
 return this.httpService.trashApi(noteData);
 }
+
+colorChangeApiCall(noteId: number, color: string) {
+  return this.httpService.colorApi(noteId,color);
+}
+
+deleteApiCall(noteData:any) {
+  return this.httpService.deleteApi(noteData);
+}
 }

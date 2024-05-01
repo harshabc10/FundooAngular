@@ -25,6 +25,8 @@ import { ArchiveContainerComponent } from './components/archive-container/archiv
 import { TrashContainerComponent } from './components/trash-container/trash-container.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { EditnoteComponent } from './components/editnote/editnote.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -41,7 +43,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     NotesContainerComponent,
     ArchiveContainerComponent,
     TrashContainerComponent,
-    DashboardComponent
+    DashboardComponent,
+    EditnoteComponent
   ],
   imports: [
     FormsModule,
@@ -56,7 +59,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatInputModule,
     MatIconModule,
     MatSidenavModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

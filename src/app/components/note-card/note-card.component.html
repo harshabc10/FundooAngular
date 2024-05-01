@@ -1,65 +1,80 @@
-<div class="note-card-outer">
-  <div *ngFor="let note of notesData" class="note-card">
+<div class="note-card-outer" >
+  <div *ngFor="let note of notesData" class="note-card" [style.backgroundColor]="note.color">
     <mat-icon
       class="pin-icon"
       svgIcon="pin-icon"
       aria-hidden="false"
       aria-label="Note SVG icon"
     ></mat-icon>
-    <div class="note-content">
+
+    <div class="note-content" (click)="handelEditNote(note)">
       <span class="sample-text">{{ note.title }} </span>
       <span class="sample-text">{{ note.description }} </span>
     </div>
-    <div class="note-icons">
-      <mat-icon
-        svgIcon="reminder-icon"
-        aria-hidden="false"
-        aria-label="Note SVG icon"
-      ></mat-icon>
-      <mat-icon
-        svgIcon="collabrator-icon"
-        aria-hidden="false"
-        aria-label="Note SVG icon"
-      ></mat-icon>
-      <mat-icon
-        svgIcon="color-icon"
-        [matMenuTriggerFor]="noteCardColourMenu"
-        aria-hidden="false"
-        aria-label="Note SVG icon"
-      ></mat-icon>
-      <mat-icon
-        svgIcon="img-icon"
-        aria-hidden="false"
-        aria-label="Note SVG icon"
-      ></mat-icon>
-      <mat-icon
-        svgIcon="archive-icon"
-        (click)="handleNoteIconsClick('archive', note)"
-        aria-hidden="false"
-        aria-label="Note SVG icon"
-      ></mat-icon>
-      <mat-icon
-        svgIcon="more-icon"
-        [matMenuTriggerFor]="moreMenu"
-        aria-hidden="false"
-        aria-label="Note SVG icon"
-      ></mat-icon>
-    </div>
+
+    <div *ngIf="container==='trash' else notesIcons">
+      <mat-icon (click)="handleNoteIconsClick('delete', note)" svgIcon="delete-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+      <mat-icon (click)="handleNoteIconsClick('trash', note)"svgIcon="restore-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+  </div>
+
+    <ng-template  #notesIcons>
+      <div class="note-icons">
+        <mat-icon
+          svgIcon="reminder-icon"
+          aria-hidden="false"
+          aria-label="Note SVG icon"
+        ></mat-icon>
+        <mat-icon
+          svgIcon="collabrator-icon"
+          aria-hidden="false"
+          aria-label="Note SVG icon"
+        ></mat-icon>
+        <mat-icon
+          svgIcon="color-icon"
+          [matMenuTriggerFor]="noteCardColourMenu"
+          aria-hidden="false"
+          aria-label="Note SVG icon"
+        ></mat-icon>
+        <mat-icon
+          svgIcon="img-icon"
+          aria-hidden="false"
+          aria-label="Note SVG icon"
+        ></mat-icon>
+        <mat-icon
+          svgIcon="archive-icon"
+          *ngIf="container==='notes' else unarchiveIcon"
+          (click)="handleNoteIconsClick('archive', note)"
+          aria-hidden="false"
+          aria-label="Note SVG icon"
+        ></mat-icon>
+        <ng-template #unarchiveIcon>
+          <mat-icon (click)="handleNoteIconsClick('unarchive', note)" svgIcon="unarchive-icon" aria-hidden="false" aria-label="Note SVG icon"></mat-icon>
+      </ng-template>
+        <mat-icon
+          svgIcon="more-icon"
+          [matMenuTriggerFor]="moreMenu"
+          aria-hidden="false"
+          aria-label="Note SVG icon"
+        ></mat-icon>
+      </div>
+      
+    </ng-template>
+  
 
     <mat-menu #noteCardColourMenu="matMenu">
       <div class="color-palate-cnt">
-        <div class="col1" matTooltip="Default"></div>
-        <div class="col2" matTooltip="Coral"></div>
-        <div class="col3" matTooltip="Peach"></div>
-        <div class="col4" matTooltip="Sand"></div>
-        <div class="col5" matTooltip="Mint"></div>
-        <div class="col6" matTooltip="Sage"></div>
-        <div class="col7" matTooltip="Fog"></div>
-        <div class="col8" matTooltip="Storm"></div>
-        <div class="col9" matTooltip="Dusk"></div>
-        <div class="col10" matTooltip="Blossom"></div>
-        <div class="col11" matTooltip="Clay"></div>
-        <div class="col12" matTooltip="Chalk"></div>
+        <div class="col1" matTooltip="Default" (click)="handleNoteIconsClick('color',note,'#FFFFFF')"></div>
+                <div class="col2" matTooltip="Coral" (click)="handleNoteIconsClick('color',note,'#FAAFA8')"></div>
+                <div class="col3" matTooltip="Peach" (click)="handleNoteIconsClick('color',note,'#F39F76')"></div>
+                <div class="col4" matTooltip="Sand" (click)="handleNoteIconsClick('color',note,'#FFF8B8')"></div>
+                <div class="col5" matTooltip="Mint" (click)="handleNoteIconsClick('color',note,'#E2F6D3')"></div>
+                <div class="col6" matTooltip="Sage" (click)="handleNoteIconsClick('color',note,'#B4DDD3')"></div>
+                <div class="col7" matTooltip="Fog" (click)="handleNoteIconsClick('color',note,'#D4E4ED')"></div>
+                <div class="col8" matTooltip="Storm" (click)="handleNoteIconsClick('color',note,'#AECCDC')"></div>
+                <div class="col9" matTooltip="Dusk" (click)="handleNoteIconsClick('color',note,'#D3BFDB')"></div>
+                <div class="col10" matTooltip="Blossom" (click)="handleNoteIconsClick('color',note,'#F6E2DD')"></div>
+                <div class="col11" matTooltip="Clay" (click)="handleNoteIconsClick('color',note,'#E9E3D4')"></div>
+                <div class="col12" matTooltip="Chalk" (click)="handleNoteIconsClick('color',note,'#EFEFF1')"></div>  
       </div>
     </mat-menu>
 

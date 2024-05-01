@@ -10,18 +10,23 @@
 //         }
 //     }
 // }
+::ng-deep .app-create-note-cnt{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  }
 
 .parent {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between; /* Align items to the left and right */
   padding: 10px;
   border-radius: 10px;
   width: 50%;
-  margin-top: -300px;
+  height:43px;
   margin-top: 70px;
-  margin-bottom: 50px;
   background-color: white;
-  margin-left: 450px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow instead of border */
 }
 

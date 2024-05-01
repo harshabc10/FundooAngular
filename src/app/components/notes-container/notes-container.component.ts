@@ -28,6 +28,15 @@ notesList: any = []
     else if($event.action=="archive" || $event.action=="trash"){
       this.notesList=this.notesList.filter((ele:any)=>ele.id!=$event.data.id)
     }
+    else if($event.action=="color" || $event.action=="update"){
+      this.notesList=this.notesList.map((ele:any)=>{
+        if(ele.id==$event.data.id)
+          return $event.data
+        else
+        return ele
+      })
+
+    }
 
   }
 

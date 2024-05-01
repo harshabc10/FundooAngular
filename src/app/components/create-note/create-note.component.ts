@@ -7,7 +7,10 @@ import { ARCHIVE_ICON, BRUSH_ICON, COLLABRATOR_ICON, COLOR_PALATTE_ICON, IMG_ICO
 @Component({
   selector: 'app-create-note',
   templateUrl: './create-note.component.html',
-  styleUrls: ['./create-note.component.scss']
+  styleUrls: ['./create-note.component.scss'],
+  host:{
+    class:"app-create-note-cnt"
+  }
 })
 export class CreateNoteComponent implements OnInit {
 

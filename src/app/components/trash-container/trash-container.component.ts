@@ -24,7 +24,7 @@ export class TrashContainerComponent implements OnInit {
 
   handelUpdateTrashList($event: { action: string; data: any }) {
     console.log('event', $event);
-    if ($event.action == 'archive' || $event.action == 'trash') {
+    if ($event.action == 'delete' || $event.action == 'trash') {
       this.trashList = this.trashList.filter(
         (ele: any) => ele.id != $event.data.id
       );
