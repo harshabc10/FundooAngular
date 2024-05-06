@@ -9,6 +9,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class EditnoteComponent implements OnInit {
 title:string=''
 description:string=''
+createNote: boolean = false;
+
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<EditnoteComponent>) {
@@ -24,6 +26,9 @@ description:string=''
 
   handelEditNote(){
     this.dialogRef.close({...this.data,title:this.title,description:this.description})
+  }
+  handleNoteIconsClick(string:any){
+
   }
 
 }

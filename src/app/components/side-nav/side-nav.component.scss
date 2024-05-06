@@ -27,12 +27,7 @@
 .side-nav-icon-lable-cnt:hover {
     background-color: #eab964; /* Change background color on hover */
 }
-.mat-icon {
-    margin-right: 40px; /* Increase the space between icon and text */
-    margin-bottom:20px;
-    font-size: 24px; /* Increase the size of the icon */
-    margin-top: 30px;
-}
+
 
 .mat-drawer{
     width: 180px;
@@ -56,10 +51,16 @@
     justify-content: space-between;
 }
 .close-drawer-cnt{
-    width:calc(5% - 40px);
+    width:5%;
+    max-width: 35px;
     display: flex;
     flex-direction: column;
     gap:20px;
     padding: 15px 20px;
     align-items: center;
+}
+
+.router-outlet-cnt{
+    width: 95%;
+
 }

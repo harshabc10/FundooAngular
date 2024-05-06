@@ -15,7 +15,7 @@ export class ArchiveContainerComponent implements OnInit {
     this.notesService.getAllNotesApiCall().subscribe(
       (response: any) => {
         console.log(response);
-        this.archiveList = response.data.filter((ele: any) => ele.isArchive);
+        this.archiveList = response.data.filter((ele: any) => ele.isArchive && !ele.isTrash);
       },
       (err) => console.log(err)
     );
@@ -23,7 +23,7 @@ export class ArchiveContainerComponent implements OnInit {
 
   handelUpdateArchiveList($event: { action: string; data: any }) {
     console.log('event', $event);
-    if ($event.action == 'unarchive' || $event.action == 'trash') {
+    if ($event.action == 'unarchive' || $event.action == 'trash' || $event.action=='update') {
       this.archiveList = this.archiveList.filter(
         (ele: any) => ele.id != $event.data.id
       );

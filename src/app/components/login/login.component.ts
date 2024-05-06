@@ -39,6 +39,9 @@ loginForm !:FormGroup
     const {email,password} = this.loginForm.value
     this.userService.loginApiCall(email,password).subscribe(res=> {
       localStorage.setItem('authToken',res.token)
+      localStorage.setItem('userName', res.userName) // Assuming the response includes UserName
+        localStorage.setItem('email', res.email)
+      
 
        this.router.navigate(['/dashboard/notes'])
 

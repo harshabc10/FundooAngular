@@ -16,7 +16,12 @@ export class FundooHeaderComponent implements OnInit, OnDestroy {
   isDrawerOpen:boolean = false;
   subscription!:Subscription
 
-  constructor(private domSanitizer:DomSanitizer,private matIconRegistry:MatIconRegistry, private dataService: DataService) { 
+  searchString:string=''
+
+  username: string = '' // Replace with actual username
+  email: string = ''
+
+  constructor(private domSanitizer:DomSanitizer,private matIconRegistry:MatIconRegistry, private dataService: DataService, private router: Router) { 
     matIconRegistry.addSvgIconLiteral("menu-icon", domSanitizer.bypassSecurityTrustHtml(MENU_ICON)),
     matIconRegistry.addSvgIconLiteral("search-icon", domSanitizer.bypassSecurityTrustHtml(SEARCH_ICON)),
     matIconRegistry.addSvgIconLiteral("refresh-icon", domSanitizer.bypassSecurityTrustHtml(REFRESH_ICON)),
@@ -28,16 +33,28 @@ export class FundooHeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription= this.dataService.currDrawerState.subscribe(result => {
       this.isDrawerOpen = result;
-    })
+    });
+    this.username = localStorage.getItem('userName') || '';
+    this.email = localStorage.getItem('email') || '';
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+    
   }
 
   HandelToggleDrawer() {
-    console.log("toggle drawer");
+    //console.log("toggle drawer");
     this.dataService.toggleDrawerState(this.isDrawerOpen);
     this.isDrawerOpen = !this.isDrawerOpen;
+  }
+
+  handelSerchString(){
+    this.dataService.updateSearchString(this.searchString)
+  }
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/']);
+    
   }
 }

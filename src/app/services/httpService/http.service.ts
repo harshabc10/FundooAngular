@@ -23,6 +23,7 @@ export class HttpService {
     return this.http.post(`https://localhost:7004/api/User/Login?Email=${encodeURI(email) }&password=${encodeURI(password)}`,{})
   }
 
+
   signUpApi(requestBody: any): Observable<any> {
     return this.http.post('https://localhost:7004/api/User', requestBody, {});
   }
@@ -47,7 +48,12 @@ export class HttpService {
     console.log(color)  
     return this.http.put(`https://localhost:7004/api/usernotes/changecolor/${noteId}?color=${encodeURIComponent(color)}`,{},{headers:this.authHeader});
 }
-  deleteApi(noteData:any):Observable<any>{
-    return this.http.delete('https://localhost:7004/api/usernotes'+ noteData,{headers:this.authHeader})
+
+  updateApi(noteId: number, noteData: any): Observable<any> {
+    return this.http.put(`https://localhost:7004/api/usernotes/${noteId}`, noteData, { headers: this.authHeader });
+  }
+
+  deleteApi(noteId: number): Observable<any> {
+    return this.http.delete(`https://localhost:7004/api/usernotes/${noteId}`, { headers: this.authHeader });
   }
 }

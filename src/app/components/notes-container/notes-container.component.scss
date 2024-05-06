@@ -2,3 +2,7 @@
     display: flex;
     margin-bottom: 100px;
 }
+
+::ng-deep .app-notes-cnt{
+    width: 100%;
+}

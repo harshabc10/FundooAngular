@@ -6,17 +6,27 @@
             <span class="header-title">Keep</span>
         </div>
         <div class="search-container">
-            <mat-icon svgIcon="search-icon" aria-hidden="false" aria-label="Search SVG icon"></mat-icon>
-            <input type="text" class="search-input" placeholder="Search...">
+            <mat-icon svgIcon="search-icon"  aria-hidden="false" aria-label="Search SVG icon"></mat-icon>
+            <input type="text" class="search-input" [(ngModel)]="searchString" (input)="handelSerchString()" placeholder="Search...">
         </div>
         <div class="right-icons">
             <mat-icon svgIcon="refresh-icon" aria-hidden="false" aria-label="Refresh SVG icon"></mat-icon>
             <mat-icon  svgIcon="list-view-icon" aria-hidden="false" aria-label="List SVG icon"></mat-icon>
             <mat-icon svgIcon="setting-icon" aria-hidden="false" aria-label="Settings SVG icon"></mat-icon>
         </div>
-        <div class="right-icon-end">
+        <div class="right-icon-end" [matMenuTriggerFor]="userMenu">
             <mat-icon svgIcon="other-menu-icon" aria-hidden="false" aria-label="other-menu-icon SVG icon"></mat-icon>
-            <span class="account-initial">H</span>
+            <span class="account-initial">{{ username ? username.charAt(0) : '' }}</span>
         </div>
     </div>
 </div>
+
+<mat-menu #userMenu="matMenu">
+    <ng-template matMenuContent>
+        <div class="user-menu">
+            <span class="username">{{ username }}</span>
+            <span class="email">{{ email }}</span>
+            <button  class="btn btn-primary"(click)="logout()">Logout</button>
+        </div>
+    </ng-template>
+</mat-menu>

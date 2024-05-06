@@ -30,7 +30,11 @@ colorChangeApiCall(noteId: number, color: string) {
   return this.httpService.colorApi(noteId,color);
 }
 
-deleteApiCall(noteData:any) {
-  return this.httpService.deleteApi(noteData);
+updateApiCall(noteId: number, noteData: any){
+  return this.httpService.updateApi(noteId, noteData);
 }
+deleteApiCall(noteId: number) {
+  return this.httpService.deleteApi(noteId);
+}
+
 }

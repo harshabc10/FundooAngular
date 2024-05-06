@@ -27,6 +27,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { EditnoteComponent } from './components/editnote/editnote.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { SearchPipe } from './pipe/search.pipe';
 
 
 
@@ -44,7 +45,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     ArchiveContainerComponent,
     TrashContainerComponent,
     DashboardComponent,
-    EditnoteComponent
+    EditnoteComponent,
+    SearchPipe
   ],
   imports: [
     FormsModule,

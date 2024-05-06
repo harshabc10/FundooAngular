@@ -17,6 +17,8 @@ export class CreateNoteComponent implements OnInit {
   title: string = "";
   description: string = "";
 
+  
+
   createNote: boolean = false;
 
 //  @Output() handleUpdateList: EventEmitter<any> = new EventEmitter();
